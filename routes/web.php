@@ -74,9 +74,34 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as' => 'maps'
   ]);
 
+  Route::get('/maps/trashed', [
+    'uses' => 'MapsController@trashed',
+    'as' => 'map.trashed'
+  ]);
+
+  Route::get('/maps/kill/{id}', [
+    'uses' => 'MapsController@kill',
+    'as' => 'map.kill'
+  ]);
+
+  Route::get('/maps/restore/{id}', [
+    'uses' => 'MapsController@restore',
+    'as' => 'map.restore'
+  ]);
+
   Route::get('/map/create', [
     'uses' => 'MapsController@create',
     'as' => 'map.create'
+  ]);
+
+  Route::post('/map/store', [
+    'uses' => 'MapsController@store',
+    'as' => 'map.store'
+  ]);
+
+  Route::get('/map/delete/{id}', [
+    'uses' => 'MapsController@destroy',
+    'as' => 'map.delete'
   ]);
 
 });

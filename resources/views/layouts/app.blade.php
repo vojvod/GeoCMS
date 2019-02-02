@@ -103,6 +103,9 @@
                         <a href="{{ route('maps') }}">Maps</a>
                       </li>
                       <li class="list-group-item">
+                        <a href="{{ route('map.trashed') }}">Trashed Maps</a>
+                      </li>
+                      <li class="list-group-item">
                         <a href="{{ route('map.create') }}">Add New Map</a>
                       </li>
                 </ul>

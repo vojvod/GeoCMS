@@ -15,10 +15,10 @@
             Title
           </th>
         <th>
-          Edit
+          Restore
         </th>
         <th>
-          Trash
+          Destroy
         </th>
       </thead>
       <tbody>
@@ -31,10 +31,10 @@
                 {{ $map->title }}
               </td>
               <td>
-                Edit
+                <a href="{{ route('map.restore', ['id' => $map->id]) }}" class="btn btn-xs btn-success">Restore</a>
               </td>
               <td>
-                <a href="{{ route('map.delete', ['id' => $map->id]) }}" class="btn btn-danger">Trash</a>
+                <a href="{{ route('map.kill', ['id' => $map->id]) }}" class="btn btn-xs btn-danger">Delete</a>
               </td>
             </tr>
           @endforeach
