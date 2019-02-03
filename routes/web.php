@@ -89,6 +89,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as' => 'map.restore'
   ]);
 
+  Route::get('/maps/edit/{id}', [
+    'uses' => 'MapsController@edit',
+    'as' => 'map.edit'
+  ]);
+
+  Route::post('/maps/update/{id}', [
+    'uses' => 'MapsController@update',
+    'as' => 'map.update'
+  ]);
+
   Route::get('/map/create', [
     'uses' => 'MapsController@create',
     'as' => 'map.create'

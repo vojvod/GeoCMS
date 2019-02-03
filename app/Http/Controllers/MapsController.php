@@ -94,7 +94,9 @@ class MapsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $map = Map::find($id);
+
+        return view('admin.maps.edit')->with('map', $map)->with('categories', Category::all());
     }
 
     /**
@@ -106,7 +108,39 @@ class MapsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+          'title' => 'required',
+          'content' => 'required',
+          'category_id' => 'required'
+        ]);
+
+        $map = Map::find($id);
+
+        if($request->hasFile('featured'))
+        {
+
+          $featured = $request->featured;
+
+          $featured_new_name = time().$featured->getClientOriginalName();
+
+          $featured->move('uploads/maps', $featured_new_name);
+
+          $map->featured = 'uploads/maps' . $featured_new_name;
+
+        }
+
+        $map->title = $request->title;
+
+        $map->content = $request->content;
+
+        $map->category_id = $request->category_id;
+
+
+        $map->save();
+
+        toastr()->success('Map updated succesfully!');
+
+        return redirect()->route('maps');
     }
 
     /**
