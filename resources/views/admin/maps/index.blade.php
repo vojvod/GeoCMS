@@ -22,6 +22,8 @@
         </th>
       </thead>
       <tbody>
+        @if($maps->count() > 0)
+
           @foreach($maps as $map)
             <tr>
               <td>
@@ -38,6 +40,17 @@
               </td>
             </tr>
           @endforeach
+
+        @else
+
+          <tr>
+            <th colspan="5" class="text-center">
+              No maps
+            </th>
+          </tr>
+
+        @endif
+
       </tbody>
     </table>
   </div>
