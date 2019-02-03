@@ -25,16 +25,16 @@
           @foreach($maps as $map)
             <tr>
               <td>
-                <img src="{{ $map->featured }}" alt="{{ $map->title }}" width="50px" height="80px"/>
+                <img src="{{ $map->getFeaturedAttribure($map->featured) }}" alt="{{ $map->title }}" width="80px" height="50px"/>
               </td>
               <td>
                 {{ $map->title }}
               </td>
               <td>
-                Edit
+                <a href="{{ route('map.edit', ['id' => $map->id]) }}" class="btn btn-sm btn-info">Edit</a>
               </td>
               <td>
-                <a href="{{ route('map.delete', ['id' => $map->id]) }}" class="btn btn-danger">Trash</a>
+                <a href="{{ route('map.delete', ['id' => $map->id]) }}" class="btn btn-sm btn-danger">Trash</a>
               </td>
             </tr>
           @endforeach
