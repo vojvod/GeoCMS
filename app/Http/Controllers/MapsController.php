@@ -31,16 +31,18 @@ class MapsController extends Controller
     {
         $categories = Category::all();
 
-        if($categories->count() == 0)
+        $tags = Tag::all();
+
+        if($categories->count() == 0 || $tags->count() == 0)
         {
 
-          toastr()->info('You must have a map category before attempting to create a map.');
+          toastr()->info('You must have a map category and a tag before attempting to create a map.');
 
           return redirect()->back();
 
         }
 
-        return view('admin.maps.create')->with('categories', $categories)->with('tags', Tag::all());
+        return view('admin.maps.create')->with('categories', $categories)->with('tags', $tags);
     }
 
     /**

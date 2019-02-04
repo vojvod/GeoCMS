@@ -97,12 +97,25 @@
                               </div>
                             </li>
 
+                          @if(Auth::user()->admin)
+                            <li class="nav-item dropdown">
+                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                  Users <span class="caret"></span>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ route('users') }}">Users</a>
+                                  <a class="dropdown-item" href="{{ route('user.create') }}">Add New User</a>
+                              </div>
+                            </li>
+                          @endif
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('user.profile') }}">My Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -128,14 +141,20 @@
                 <div class="col-lg-4">
                 <ul class="list-group">
                   <li class="list-group-item">
+                    <a href="{{ route('user.profile') }}">My Profile</a>
+                  </li>
+                  <li class="list-group-item">
                     <a href="{{ route('home') }}">Dashboard</a>
                   </li>
+
+                  @if(Auth::user()->admin)
                     <li class="list-group-item">
                       <a href="{{ route('users') }}">Users</a>
                     </li>
-                      <li class="list-group-item">
+                    <li class="list-group-item">
                         <a href="{{ route('user.create') }}">Add New User</a>
-                      </li>
+                    </li>
+                  @endif
                     <li class="list-group-item">
                       <a href="{{ route('services') }}">Services</a>
                     </li>
