@@ -70,6 +70,15 @@
                             </li>
                             <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                  Tags <span class="caret"></span>
+                              </a>
+                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ route('tags') }}">Tags</a>
+                                  <a class="dropdown-item" href="{{ route('tag.create') }}">Add New Tag</a>
+                              </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                   Map Categories <span class="caret"></span>
                               </a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -133,6 +142,12 @@
                       <li class="list-group-item">
                         <a href="{{ route('category.create') }}">Add New Map Category</a>
                       </li>
+                        <li class="list-group-item">
+                          <a href="{{ route('tags') }}">Tags</a>
+                        </li>
+                          <li class="list-group-item">
+                            <a href="{{ route('tag.create') }}">Add New Tag</a>
+                          </li>
                       <li class="list-group-item">
                         <a href="{{ route('maps') }}">Maps</a>
                       </li>

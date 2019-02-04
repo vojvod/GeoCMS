@@ -18,6 +18,14 @@
           </select>
         </div>
         <div class="form-group">
+          <label for="tags">Select tags</label>
+          @foreach($tags as $tag)
+            <div class="checkbox">
+              <label><input type="checkbox" name="tags[]" value="{{ $tag->id }}" />{{ $tag->tag }}</label>
+            </div>
+          @endforeach
+        </div>
+        <div class="form-group">
           <label for="title">Title</label>
           <input type="text" class="form-control" name="title" required>
         </div>

@@ -6,6 +6,8 @@ use App\Map;
 
 use App\Category;
 
+use App\Tag;
+
 use Illuminate\Http\Request;
 
 class MapsController extends Controller
@@ -38,7 +40,7 @@ class MapsController extends Controller
 
         }
 
-        return view('admin.maps.create')->with('categories', Category::all());
+        return view('admin.maps.create')->with('categories', $categories)->with('tags', Tag::all());
     }
 
     /**
@@ -53,7 +55,8 @@ class MapsController extends Controller
           'title' => 'required',
           'content' => 'required',
           'category_id' => 'required',
-          'featured' => 'required'
+          'featured' => 'required',
+          'tags' => 'required'
         ]);
 
         $featured = $request->featured;
@@ -62,13 +65,15 @@ class MapsController extends Controller
 
         $featured->move('uploads/maps', $featured_new_name);
 
-        $service = Map::create([
+        $map = Map::create([
             'title' => $request->title,
             'slug' => str_slug($request->title),
             'content' => $request->content,
             'category_id' => $request->category_id,
             'featured' => 'uploads/maps/' . $featured_new_name
         ]);
+
+        $map->tags()->attach($request->tags);
 
         toastr()->success('Map created succesfully!');
 
@@ -96,7 +101,9 @@ class MapsController extends Controller
     {
         $map = Map::find($id);
 
-        return view('admin.maps.edit')->with('map', $map)->with('categories', Category::all());
+        return view('admin.maps.edit')->with('map', $map)
+                                      ->with('categories', Category::all())
+                                      ->with('tags', Tag::all());
     }
 
     /**
@@ -137,6 +144,8 @@ class MapsController extends Controller
 
 
         $map->save();
+
+        $map->tags()->sync($request->tags);
 
         toastr()->success('Map updated succesfully!');
 
