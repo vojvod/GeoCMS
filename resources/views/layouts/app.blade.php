@@ -131,6 +131,12 @@
                     <a href="{{ route('home') }}">Dashboard</a>
                   </li>
                     <li class="list-group-item">
+                      <a href="{{ route('users') }}">Users</a>
+                    </li>
+                      <li class="list-group-item">
+                        <a href="{{ route('user.create') }}">Add New User</a>
+                      </li>
+                    <li class="list-group-item">
                       <a href="{{ route('services') }}">Services</a>
                     </li>
                     <li class="list-group-item">
