@@ -27,6 +27,11 @@ Route::get('/', [
   'as' => 'index'
 ]);
 
+Route::get('/{slug}', [
+  'uses' => 'FrontEndController@singleMap',
+  'as' => 'map.single'
+]);
+
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
