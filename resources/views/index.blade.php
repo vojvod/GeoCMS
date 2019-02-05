@@ -233,7 +233,11 @@
                       </div>
                       <div class="row">
                           <div class="case-item-wrap">
-
+                              @if($category->maps()->count() == 0)
+                                <div>
+                                  <h6 class="case-item__title">&nbsp;&nbsp;&nbsp;&nbsp;No maps for this category...</h6>
+                                </div>
+                              @endif
                               @foreach($category->maps()->orderBy('created_at', 'desc')->take(3)->get() as $map)
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                     <div class="case-item">
