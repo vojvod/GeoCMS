@@ -134,7 +134,7 @@ class MapsController extends Controller
 
           $featured->move('uploads/maps', $featured_new_name);
 
-          $map->featured = 'uploads/maps' . $featured_new_name;
+          $map->featured = 'uploads/maps/' . $featured_new_name;
 
         }
 
