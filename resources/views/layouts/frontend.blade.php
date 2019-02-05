@@ -45,7 +45,7 @@
 
 <div class="content-wrapper">
 
-    @include('includes.single_header');
+    @include('includes.single_header')
 
     @yield('content')
 

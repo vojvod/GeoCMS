@@ -18,23 +18,9 @@
                         </span>
                     </a>
                     <ul class="primary-menu-menu" style="overflow: hidden;">
-
-                        @if (Route::has('login'))
-                              @auth
-                                <li class="">
-                                  <a href="{{ route('home') }}">Admin</a>
-                                </li>
-                              @else
-                                <li class="">
-                                  <a href="{{ route('login') }}">Login</a>
-                                </li>
-                                  @if (Route::has('register'))
-                                    <li class="">
-                                      <a href="{{ route('register') }}">Register</a>
-                                    </li>
-                                  @endif
-                              @endauth
-                      @endif
+                        <li class="">
+                          <a href="{{ route('home') }}">{{ $map->title }}</a>
+                        </li>
                     </ul>
                 </nav>
                 <ul class="nav-add">

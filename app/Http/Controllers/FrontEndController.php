@@ -14,6 +14,7 @@ class FrontEndController extends Controller
 {
     public function index()
     {
+        // return view('auth.login');
         return view('index')
                 ->with('title', Setting::first()->site_name)
                 ->with('categories', Category::take(5)->get())

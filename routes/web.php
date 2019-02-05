@@ -27,7 +27,7 @@ Route::get('/', [
   'as' => 'index'
 ]);
 
-Route::get('/{slug}', [
+Route::get('/map/{slug}', [
   'uses' => 'FrontEndController@singleMap',
   'as' => 'map.single'
 ]);

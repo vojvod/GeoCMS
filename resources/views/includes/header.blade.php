@@ -32,11 +32,11 @@
                                 </li>
                               @else
                                 <li class="">
-                                  <a href="{{ route('login') }}">Login</a>
+                                  <a href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                   @if (Route::has('register'))
                                     <li class="">
-                                      <a href="{{ route('register') }}">Register</a>
+                                      <a href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                   @endif
                               @endauth

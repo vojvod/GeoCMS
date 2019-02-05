@@ -59,7 +59,7 @@
                             <a href="{{ $first_map->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="#" class="link-post">
+                            <a href="{{ route('map.single', ['slug' => $first_map->slug]) }}" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
@@ -115,7 +115,7 @@
                             <a href="{{ $second_map->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="#" class="link-post">
+                            <a href="{{ route('map.single', ['slug' => $second_map->slug]) }}" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
@@ -167,7 +167,7 @@
                             <a href="{{ $third_map->featured }}" class="link-image js-zoom-image">
                                 <i class="seoicon-zoom"></i>
                             </a>
-                            <a href="#" class="link-post">
+                            <a href="{{ route('map.single', ['slug' => $third_map->slug]) }}" class="link-post">
                                 <i class="seoicon-link-bold"></i>
                             </a>
                         </div>
