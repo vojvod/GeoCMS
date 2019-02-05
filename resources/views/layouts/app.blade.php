@@ -24,6 +24,9 @@
     @toastr_css
     @toastr_js
 
+    @yield('styles')
+    @yield('scripts')
+
 </head>
 <body>
     <div id="app">
@@ -61,7 +64,7 @@
                             </li>
                             <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  Services <span class="caret"></span>
+                                  Layers <span class="caret"></span>
                               </a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('services') }}">Services</a>
@@ -70,27 +73,15 @@
                             </li>
                             <li class="nav-item dropdown">
                               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  Tags <span class="caret"></span>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="{{ route('tags') }}">Tags</a>
-                                  <a class="dropdown-item" href="{{ route('tag.create') }}">Add New Tag</a>
-                              </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  Map Categories <span class="caret"></span>
+                                  Maps <span class="caret"></span>
                               </a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('categories') }}">Map Categories</a>
                                   <a class="dropdown-item" href="{{ route('category.create') }}">Add New Map Category</a>
-                              </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                  Maps <span class="caret"></span>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="{{ route('tags') }}">Map Tags</a>
+                                  <a class="dropdown-item" href="{{ route('tag.create') }}">Add New Map Tag</a>
+                                  <div class="dropdown-divider"></div>
                                   <a class="dropdown-item" href="{{ route('maps') }}">Maps</a>
                                   <a class="dropdown-item" href="{{ route('map.trashed') }}">Trashed Maps</a>
                                   <a class="dropdown-item" href="{{ route('map.create') }}">Add New Map</a>
@@ -105,6 +96,8 @@
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('users') }}">Users</a>
                                   <a class="dropdown-item" href="{{ route('user.create') }}">Add New User</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="{{ route('settings') }}">Settings</a>
                               </div>
                             </li>
                           @endif
@@ -192,6 +185,7 @@
           </div>
         </main>
     </div>
+
 
 </body>
     @toastr_render

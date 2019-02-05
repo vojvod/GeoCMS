@@ -189,9 +189,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'uses' => 'ProfilesController@update',
     'as' => 'user.profile.update'
   ]);
-    Route::get('/user/delete/{id}', [
-      'uses' => 'UsersController@destroy',
-      'as' => 'user.delete'
-    ]);
+
+  Route::get('/user/delete/{id}', [
+    'uses' => 'UsersController@destroy',
+    'as' => 'user.delete'
+  ]);
+
+  Route::get('/settings', [
+    'uses' => 'SettingsController@index',
+    'as' => 'settings'
+  ])->middleware('admin');
+
+  Route::post('/settings/update', [
+    'uses' => 'SettingsController@update',
+    'as' => 'settings.update'
+  ])->middleware('admin');
 
 });
