@@ -68,7 +68,10 @@
                               </a>
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="{{ route('services') }}">Services</a>
+                                  <a class="dropdown-item" href="{{ route('service.trashed') }}">Trashed Services</a>
                                   <a class="dropdown-item" href="{{ route('service.create') }}">Add New Service</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Layers</a>
                               </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -130,7 +133,8 @@
         <main class="py-4">
           <div class="container">
             <div class="row justify-content-center">
-              @if(Auth::check())
+
+              <!-- @if(Auth::check())
                 <div class="col-lg-4">
                 <ul class="list-group">
                   <li class="list-group-item">
@@ -138,9 +142,9 @@
                   </li>
                   <li class="list-group-item">
                     <a href="{{ route('home') }}">Dashboard</a>
-                  </li>
+                  </li> -->
 
-                  @if(Auth::user()->admin)
+                  <!-- @if(Auth::user()->admin)
                     <li class="list-group-item">
                       <a href="{{ route('users') }}">Users</a>
                     </li>
@@ -177,8 +181,9 @@
                       </li>
                 </ul>
               </div>
-              @endif
-              <div class="col-lg-8">
+              @endif -->
+
+              <div class="col-lg-10">
                 @yield('content')
               </div>
             </div>

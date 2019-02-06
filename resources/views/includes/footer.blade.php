@@ -9,7 +9,7 @@
                             <span class="short-line"></span>
                             <span class="long-line"></span>
                         </div>
-                        <p>{{ $settings->about}}</p>
+                        {{ $settings->about}}
                     </div>
                 </div>
             </div>

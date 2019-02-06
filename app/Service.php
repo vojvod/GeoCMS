@@ -11,7 +11,7 @@ class Service extends Model
     use SoftDeletes;
 
     protected $fillable = [
-      'serviceUrl', 'serviceType', 'username', 'password'
+      'serviceUrl', 'serviceType', 'username', 'password', 'slug'
     ];
 
     protected $dates = ['deleted_at'];

@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="card">
-  <div class="card-header">Services</div>
+  <div class="card-header">Trashed Services</div>
   <div class="card-body">
 
     <table class="table table-hover">
@@ -15,10 +15,10 @@
             Service Type
           </th>
         <th>
-          Edit
+          Restore
         </th>
         <th>
-          Trash
+          Delete
         </th>
       </thead>
       <tbody>
@@ -33,10 +33,10 @@
                 {{ $service->serviceType }}
               </td>
               <td>
-                <a href="{{ route('service.edit', ['id' => $service->id]) }}" class="btn btn-sm btn-info">Edit</a>
+                <a href="{{ route('service.restore', ['id' => $service->id]) }}" class="btn btn-sm btn-success">Restore</a>
               </td>
               <td>
-                <a href="{{ route('service.delete', ['id' => $service->id]) }}" class="btn btn-sm btn-danger">Trash</a>
+                <a href="{{ route('service.kill', ['id' => $service->id]) }}" class="btn btn-sm btn-danger">Delete</a>
               </td>
             </tr>
           @endforeach

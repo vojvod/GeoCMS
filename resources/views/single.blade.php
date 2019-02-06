@@ -14,8 +14,7 @@
   <div id="map" class="map" style="width: 100%; height: 100%; position:fixed"></div>
   <script type="text/javascript">
 
-    // Two base layers
-    var stamen = new ol.layer.Tile(
+   var stamen = new ol.layer.Tile(
           {	title: "Watercolor",
             baseLayer: true,
             source: new ol.source.Stamen({
@@ -29,20 +28,16 @@
             visible: false
           });
 
-    // GeoJSON layer with a preview attribute
-    var vectorSource = new ol.source.Vector(
-    {	url: '../data/fond_guerre.geojson',
-      projection: 'EPSG:3857',
-      format: new ol.format.GeoJSON(),
-      attributions: [ "&copy; <a href='https://data.culture.gouv.fr/explore/dataset/fonds-de-la-guerre-14-18-extrait-de-la-base-memoire'>data.culture.gouv.fr</a>" ],
-      logo:"https://www.data.gouv.fr/s/avatars/37/e56718abd4465985ddde68b33be1ef.jpg"
-    });
-
-    var vector = new ol.layer.Vector(
-    {	name: '1914-18',
-      preview: "http://www.culture.gouv.fr/Wave/image/memoire/2445/sap40_z0004141_v.jpg",
-      source: vectorSource
-    });
+    var esri = new ol.layer.Tile({
+      title: "OSM",
+      baseLayer: true,
+              source: new ol.source.XYZ({
+                attributions: 'Tiles © <a href="https://services.arcgisonline.com/ArcGIS/' +
+                      'rest/services/World_Topo_Map/MapServer">ArcGIS</a>',
+                  url: 'https://server.arcgisonline.com/ArcGIS/rest/services/' +
+                      'World_Topo_Map/MapServer/tile/{z}/{y}/{x}'
+                })
+              });
 
   	// The map
   	var map = new ol.Map
@@ -51,7 +46,7 @@
   			({	zoom: 6,
   				center: [173664, 6166327]
   			}),
-  			layers: [stamen, osm, vector]
+  			layers: [stamen, osm, esri]
   		});
 
   	// Add a new Layerswitcher to the map

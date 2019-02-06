@@ -56,6 +56,36 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     'as' => 'service.store'
   ]);
 
+  Route::get('/service/edit/{id}', [
+    'uses' => 'ServicesController@edit',
+    'as' => 'service.edit'
+  ]);
+
+  Route::get('/service/delete/{id}', [
+    'uses' => 'ServicesController@destroy',
+    'as' => 'service.delete'
+  ]);
+
+  Route::post('/service/update/{id}', [
+    'uses' => 'ServicesController@update',
+    'as' => 'service.update'
+  ]);
+
+  Route::get('/service/trashed', [
+    'uses' => 'ServicesController@trashed',
+    'as' => 'service.trashed'
+  ]);
+
+  Route::get('/service/kill/{id}', [
+    'uses' => 'ServicesController@kill',
+    'as' => 'service.kill'
+  ]);
+
+  Route::get('/service/restore/{id}', [
+    'uses' => 'ServicesController@restore',
+    'as' => 'service.restore'
+  ]);
+
   Route::get('/category/create', [
     'uses' => 'CategoriesController@create',
     'as' => 'category.create'
