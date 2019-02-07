@@ -6,7 +6,7 @@ use Closure;
 
 use Auth;
 
-class Admin
+class Editor
 {
     /**
      * Handle an incoming request.
@@ -17,9 +17,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->admin == 1)
+        if(Auth::user()->admin == 2)
         {
-          return $next($request);
+          toastr()->info('You do not have permissions to perform this action');
+          return redirect()->back();
         }
+
+        return $next($request);
     }
 }

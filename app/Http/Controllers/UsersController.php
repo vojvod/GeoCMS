@@ -130,11 +130,24 @@ class UsersController extends Controller
        return redirect()->back() ;
     }
 
-    public function not_admin($id)
+    public function editor($id)
     {
       $user = User::find($id);
 
-      $user->admin = 0;
+      $user->admin = 2;
+
+      $user->save();
+
+      toastr()->success('Successfully! changed user permissions!');
+
+      return redirect()->back();
+    }
+
+    public function viewer($id)
+    {
+      $user = User::find($id);
+
+      $user->admin = 3;
 
       $user->save();
 

@@ -18,6 +18,9 @@
           Permissions
         </th>
         <th>
+          Change
+        </th>
+        <th>
           Delete
         </th>
       </thead>
@@ -33,10 +36,22 @@
                 {{ $user->name }}
               </td>
               <td>
-                 @if($user->admin)
-                  <a href="{{ route('user.not.admin', ['id' => $user->id]) }}" class="btn btn-sm btn-danger">Remove permissions</a>
+                @if($user->admin == 1)
+                  admin
+                @elseif($user->admin == 2)
+                  editor
                 @else
-                  <a href="{{ route('user.admin', ['id' => $user->id ]) }}" class="btn btn-sm btn-success">Make admin</a>
+                  viewer
+                @endif
+              </td>
+              <td>
+                 @if($user->admin == 1)
+
+                @elseif($user->admin == 2)
+                  <!-- <a href="{{ route('user.admin', ['id' => $user->id ]) }}" class="btn btn-sm btn-success">Make admin</a> -->
+                  <a href="{{ route('user.viewer', ['id' => $user->id]) }}" class="btn btn-sm btn-primary">Make viewer</a>
+                @else
+                  <a href="{{ route('user.editor', ['id' => $user->id]) }}" class="btn btn-sm btn-warning">Make editor</a>
                  @endif
               </td>
               <td>
